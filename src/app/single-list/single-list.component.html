@@ -1,0 +1,126 @@
+<div class="container pl-5">
+  <div class="row mt-5 pt-5">
+    <div class="col-6">
+      <img src="{{itemToDisplay.image}}" imageZoom="{{itemToDisplay.image}}"
+           style="max-width: 50%;max-height: 100%">
+    </div>
+    <div class="col-6">
+      <div class="container" style="margin-left: -20%;padding-right: 0">
+        <div class="row">
+          <div class="col-md">
+            <h2>{{itemToDisplay.bookName}}</h2>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h5>By {{itemToDisplay.authorName}}</h5>
+          </div>
+        </div>
+
+        <!--<div class="row mt-2">-->
+          <!--<div class="col">-->
+            <!--<h5>Edition : 3rd Reprint</h5>-->
+          <!--</div>-->
+        <!--</div>-->
+        <br>
+        <div class="row mt-2">
+          <div class="col">
+            <h2><span class="badge badge-success" [hidden]="checkCondiiton() !==0">New</span></h2>
+            <h2><span class="badge badge-info" [hidden]="checkCondiiton() !==1">Almost New</span></h2>
+            <h2><span class="badge badge-warning" [hidden]="checkCondiiton() !==2">Slight Damage</span></h2>
+            <h2><span class="badge badge-danger" [hidden]="checkCondiiton() !==3">Worn</span></h2>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            <h3 style="color: red;"><b>₹{{itemToDisplay.price}}</b></h3>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-10">
+            <div class="card">
+              <div class="card-header btn-success">
+                Seller
+              </div>
+              <div class="card-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <img class="img-circle" src="{{sellingUser.picture}}"
+                           height="70px" width="70px">
+                    </div>
+                    <div class="col" style="margin-left: -40%">
+                      <div style="margin-left: -5%">
+                        <h6>{{sellingUser.name}}</h6>
+                      </div>
+                      <div class="row">
+                        <h7><i class="fa fa-phone fa-lg" style="color: blue;margin-right: 0.5em"></i>{{sellingUser.phone}}</h7>
+                      </div>
+                      <div class="row">
+                        <h7><i class="fa fa-map-marker fa-lg" style=" color: red;margin-right: 0.5em"></i>{{sellingUser.address}}</h7>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col" style="padding-left: 25%">
+                      <button id="contactButton" [disabled]="disableContactButton" type="button" class="btn btn-primary waves-light" (click)="form.show()" mdbWavesEffect>
+                        <span class="fa fa-paper-plane" style="margin-right: 1em;border-radius: 300px"></span>Contact</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-warning" (click)="addToWishList()"
+            style="margin-top: -5%;border-radius: 300px">Add To Wishlist</button>
+  </div>
+</div>
+
+<!--Modal: Contact form-->
+<div mdbModal #form="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header light-blue darken-3 white-text">
+        <h4 class="title"><i class="fa fa-pencil"></i> Message For {{sellingUser.name}}</h4>
+        <button id="closeButton" type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mb-0">
+        <div class="md-form form-sm">
+          <i class="fa fa-tag prefix"></i>
+          <input mdbInputDirective type="text" id="form21" class="form-control" [(ngModel)]="newMessage.title">
+          <label for="form21">Title</label>
+        </div>
+        <br>
+        <div class="md-form form-sm">
+          <i class="fa fa-pencil prefix"></i>
+          <textarea mdbInputDirective type="text" id="form8" class="md-textarea mb-0" [(ngModel)]="newMessage.comment"></textarea>
+          <label for="form8">Your Message</label>
+        </div>
+
+        <div class="text-center mt-1-half">
+          <button class="btn btn-info mb-2 waves-light" mdbWavesEffect (click)="sendMessage()">Send <i class="fa fa-send ml-1"></i></button>
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Contact form-->
+<div id="snackbar" >Added To Your Wishlist</div>
+<div id="snackbar2" >Added To Your Wishlist</div>
+
+

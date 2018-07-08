@@ -1,0 +1,19 @@
+<div class='wrap'>
+  <img class="img-circle" (click)="uploadEvent($event)" style="cursor: pointer;background-color: darkgrey" alt="Change DP"
+       [src]="newUser.picture" height="200px" width="200px">
+  <input type="file" accept=".jpg,.png,.jpeg" hidden #fileUploadButton id="fileUploadBut" (change)="fileUploader($event)">
+  <form  [ngModelOptions]="{standalone: true}">
+    <input type='text' name='name' placeholder='Name' [(ngModel)]="newUser.name" required>
+    <input type='text' name='college' placeholder='College' [(ngModel)]="newUser.college" required>
+    <input type='text' name='address' placeholder='Address' [(ngModel)]="newUser.address" required>
+    <input type="text" name="phone" placeholder="Phone" [(ngModel)]="newUser.phone" required>
+    <input type='email' name='email' placeholder='Email' [(ngModel)]="newUser.email" required>
+    <input type='password' name='password' placeholder='Password' [(ngModel)]="newUser.password" required>
+
+    <button type="button" (click)="signUpUser()" class="btn btn-primary waves-light" style="border-radius: 100px"  mdbWavesEffect>Sign Up</button>
+  </form>
+</div>
+<div id="snackbar" >You have Signed Up Successfully</div>
+<div id="snackbar2" >Fail</div>
+
+<!--https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif-->

@@ -1,0 +1,48 @@
+<!-- Main -->
+<div class='wrap'>
+  Your WishList
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <div class="row">
+          <div style="padding-left: 0;padding-right: 0;padding-top: 0"
+            class="block col-3" *ngFor="let item of allItems;let idx = index">
+            <div class="product" mdbWavesEffect="">
+              <!--<img src="https://gangarams.com/image/cache/placeholder-250x250.png">-->
+              <img src="{{item.bookPic}}">
+              <div class="buttons">
+                <a class="buy" (click)="redirectList(item.bookID)" onclick="">View</a>
+              </div>
+            </div>
+            <div class="info">
+              <h4>{{item.bookName}}</h4>
+              <div class="description">
+                By {{item.authorName}}
+              </div>
+              <span class="price">Rs. {{item.price}}</span>
+              <!--<a class="buy_now" href="#" onclick="updateCart('${product.id}','${product.name}','${product.manufacturer}','${product.price}')">Buy Now</a>-->
+            </div>
+            <div class="details">
+              <div class="time"><h5 class="badge badge-success"  [hidden]="checkCondiiton(item) !== 0">
+                <label style="font-size: medium" class="conditionlabel">New</label></h5>
+                <h5 class="badge badge-info"   [hidden]="checkCondiiton(item) !== 1">
+                  <label style="font-size: medium" class="conditionlabel">Almost New</label></h5>
+                <h5 class="badge badge-warning"   [hidden]="checkCondiiton(item) !== 2">
+                  <label style="font-size: medium" class="conditionlabel">Slight Damage</label></h5>
+                <h5 class="badge badge-danger"   [hidden]="checkCondiiton(item) !== 3">
+                  <label style="font-size: medium" class="conditionlabel">Worn</label></h5>
+                &nbsp;&nbsp;&nbsp;&nbsp; <a class="time" style="color: red;" (click)="removeFromWishlist(item.id,idx)" mdbTooltip="Remove Item" placement="bottom">
+                  <i class="fa fa-times-circle-o fa-lg"></i></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Main -->
+</div>

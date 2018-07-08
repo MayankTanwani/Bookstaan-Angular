@@ -1,0 +1,19 @@
+<div class='wrap'>
+  Login
+  <form>
+    <input type='email' id='username' placeholder='Email' [(ngModel)]="emailText"  [ngModelOptions]="{standalone: true}">
+    <input type='password' id='password' placeholder='Password' [(ngModel)]="passwordText"  [ngModelOptions]="{standalone: true}">
+  </form>
+  <button (click)="loginUser()"
+    type="button" class="btn btn-primary waves-light" style="border-radius: 100px"  mdbWavesEffect>Log in</button>
+  <br>
+  <!--<label style="font-size: 30px">Not a User ?</label>-->
+  <p class="font-small grey-text d-flex justify-content-center mt-3">Don't have an account?
+    &nbsp;&nbsp;&nbsp;
+    <a routerLink="/signup" class="dark-grey-text font-weight-bold "> Sign up</a>
+</div>
+
+
+<div id="snackbar">Added To Your Wishlist</div>
+<div id="snackbar2">Invalid Range</div>
+

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row pl-0">
+    <div class="col-2 mt-5 pt-5 wrap" style="margin-left: -100px;border: 20px #ff5407;">
+      <ul style="font-size: 20px;list-style-type: none;margin-left: 0;padding-left: 40px" >
+        <li mdbWavesEffect="" style="padding-left: 0px" (click)="redirectToProfileListings()"> <a>Your Listings</a>
+        <hr style="margin-left: 0"></li>
+        <li mdbWavesEffect=""> <a (click)="redirectToMessages()">Your Messages</a>
+          <hr style="margin-left: 0"></li>
+        <li mdbWavesEffect=""> <a (click)="redirectToWishList()">Your WishList</a>
+          <hr style="margin-left: 0"></li>
+
+        <li mdbWavesEffect=""> <a (click)="redirectToSell()">Sell a Book</a>
+          <hr style="margin-left: 0"></li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class='wrap'>
+        <img class="img-circle" style="cursor: pointer;background-color: darkgrey;text-align: center" alt="DP"
+             [src]="currentUser.picture"
+             height="200px" width="200px">
+        <form>
+          <label style="text-align: center;font-size: 50px">{{currentUser.name}}</label><br>
+          <label class="justify-content-start" style="font-size: 25px">
+            <i style="color: black" class="fa fa-graduation-cap mr-4"></i>{{currentUser.college}}</label><br>
+          <label class="justify-content-start" style="font-size: 25px">
+            <i style="color: black" class="fa fa-map-marker mr-4"></i>{{currentUser.address}}</label><br>
+          <label class="justify-content-start" style="font-size:25px">
+            <i style="color: black" class="fa fa-phone mr-4"></i>{{currentUser.phone}}</label><br>
+          <label class="justify-content-start" style="font-size: 25px">
+            <i style="color: black" class="fa fa-envelope-open mr-4"></i>{{currentUser.email}}</label>
+          <br><button class="btn btn-danger" style="border-radius: 300px"
+                      (click)="logoutUser()">Logout</button>
+        </form>
+      </div>
+      <div id="snackbar" >You have Signed Up Successfully</div>
+      <div id="snackbar2" >Fail</div>
+
+    </div>
+  </div>
+</div>
+
+<!--https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif-->

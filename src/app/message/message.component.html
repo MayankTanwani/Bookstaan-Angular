@@ -1,0 +1,40 @@
+<div class='wrap'>
+  Messages
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div  *ngFor="let message of allMessages">
+      <div class="card bg-light text-dark">
+        <div class="card-header">
+          <a routerLink="/listings/{{message.bookID}}"
+            style="color: crimson;background-color: transparent;text-decoration: none;transition: all .2s">
+            {{message.bookName}}</a>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <b>{{message.title}}</b>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+              {{message.comment}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <img class="img-circle" src="{{message.senderPic}}"
+               height="40px" width="40px">
+          <label style="padding: 10px"><b>{{message.senderName}}</b></label>
+          <br>
+          <label style="padding-left: 50px">{{message.createdAt}}</label>
+        </div>
+      </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

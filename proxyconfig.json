@@ -1,0 +1,62 @@
+{
+  "/api/user/login" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/listings" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/listings/:id" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/messages" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/wishlist" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/user/signup" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/user" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/wishlist/add" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/listings/add" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/messages/add" : {
+    "target" : "http://localhost:2100",
+    "secure" : false,
+    "changeOrigin" : true
+  },
+  "/api/listings/condition" : {
+  "target" : "http://localhost:2100",
+  "secure" : false,
+  "changeOrigin" : true
+  },
+  "api/listings/filter" : {
+  "target" : "http://localhost:2100",
+  "secure" : false,
+  "changeOrigin" : true
+  }
+}

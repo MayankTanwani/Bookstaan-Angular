@@ -1,0 +1,24 @@
+<div class='wrap'>
+  <img (click)="uploadEvent()" style="cursor: pointer;background-color: darkgrey" alt="Change DP"
+       [src]="newListing.image" height="300px" width="300px">
+  <input type="file" accept=".jpg,.png,.jpeg" hidden #fileUploadButton id="fileUploadBut" (change)="selectFile($event)">
+  <form>
+    <input type='text' name='name' placeholder='Book Name' [(ngModel)]="newListing.bookName">
+
+    <input type='text' name='author' placeholder='Author Name' [(ngModel)]="newListing.authorName">
+    <!--<input type="text" name="edition" placeholder="Edition/Year">-->
+    <input type='number' name='price' placeholder='Price' [(ngModel)]="newListing.price" min="0" mdbTooltip="Selling Price">
+    <label>
+      <select [(ngModel)]="newListing.bookCondition" name="condition" required >
+        <option class="reduce-font">New</option>
+        <option  class="reduce-font">Almost New</option>
+        <option  class="reduce-font">Slight Damage</option>
+        <option  class="reduce-font">Worn</option>
+      </select>
+    </label>
+  </form>
+  <button type="button" (click)="addNewListing()" class="btn btn-primary waves-light" style="border-radius: 100px"  mdbWavesEffect>Add Book</button>
+</div>
+<div id="snackbar" >You have Signed Up Successfully</div>
+<div id="snackbar2" >Fail</div>
+<!--https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif-->

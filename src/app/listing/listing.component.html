@@ -1,0 +1,188 @@
+<!-- Main -->
+<div class="container">
+  <div class="row pt-5 mt-5 " style="margin-left: -5%">
+    <aside class="col-3" style="max-width: 25%">
+      <br>
+      <div class="card" style="margin-top: -1%">
+        <article class="card-group-item">
+          <header class="card-header">
+            <button class="btn btn-primary btn-sm waves-light" style="border-radius: 50px"
+                    (click)="filterByBoth(minField.value,maxField.value)">Filter</button>
+            <button class="btn btn-primary btn-sm waves-light" style="border-radius: 50px"
+                    (click)="clearFilters()">Clear</button>
+          </header>
+          <div class="filter-content">
+            <div class="card-body">
+              Price Range
+              <hr style="margin-left: 0">
+              <div class="form-row">
+                <input #minField class="form-control"
+                  type="number" style="max-width: 40%;margin-right: 18%" [(ngModel)]="minRange" step="100" min="0" [max]="maxRange">
+                <input #maxField class="form-control"
+                  type="number" style="max-width: 40%;justify-content: end" [(ngModel)]="maxRange" step="100" [min]="minRange"
+                       [max]="maxRangeValue">
+              </div>
+              <div class="form-row" style="padding-top: 10px">
+                <div class="form-group col-md ">
+                  <ion-range-slider style="max-width: 100%;color: red;font-size: 12px" #slider
+                                    type="double" [min]="0" [max]="maxRangeValue" [step]="100" [from]="minRange"
+                                    [to]="maxRange" (onFinish)="sliderChange($event)"></ion-range-slider>
+                </div>
+            </div> <!-- card-body.// -->
+          </div>
+          </div>
+        </article> <!-- card-group-item.// -->
+        <article class="card-group-item" style="margin-top: -40px">
+          <div class="filter-content">
+            <div class="card-body">
+              Condition
+              <hr style="margin-left: 0">
+              <div class="custom-control custom-checkbox">
+                <!--<span class="float-right badge badge-light round">52</span>-->
+                <input type="checkbox" class="custom-control-input" id="Check1" [checked]="checkboxes[0]" (change)="checkboxes[0] = !checkboxes[0]">
+                <label class="custom-control-label" for="Check1">New</label>
+              </div> <!-- form-check.// -->
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="Check2" [checked]="checkboxes[1]" (change)="checkboxes[1] = !checkboxes[1]">
+                <label class="custom-control-label" for="Check2">Almost New</label>
+              </div> <!-- form-check.// -->
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="Check3" [checked]="checkboxes[2]" (change)="checkboxes[2] = !checkboxes[2]">
+                <label class="custom-control-label" for="Check3">Slightly Damaged</label>
+              </div> <!-- form-check.// -->
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="Check4" [checked]="checkboxes[3]" (change)="checkboxes[3] = !checkboxes[3]">
+                <label class="custom-control-label" for="Check4">Worn</label>
+              </div> <!-- form-check.// -->
+              <!-- form-check.// -->
+            </div> <!-- card-body.// -->
+          </div>
+        </article> <!-- card-group-item.// -->
+        <article class="card-group-item">
+          <header class="card-header">
+            <h6 class="title"></h6>
+          </header>
+          <div class="filter-content">
+            <div class="card-body">
+              Book Name
+              <hr style="margin-left: 0">
+              <div class="md-form">
+                <input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)]="bookNameText">
+                <label for="form1" class="">Book Name</label>
+              </div>
+              <button (click)="filterByBookName()"
+                type="button" class="btn btn-primary waves-light btn-sm" style="border-radius: 50px" mdbWavesEffect
+              #bookNameField>
+                Search
+              </button>
+              <button (click)="clearBookName(minField,maxField)"
+                      type="button" class="btn btn-primary waves-light btn-sm" style="border-radius: 50px" mdbWavesEffect>
+                Clear
+              </button>
+              <!-- form-check.// -->
+              <!-- form-check.// -->
+            </div> <!-- card-body.// -->
+          </div>
+        </article>
+        <article class="card-group-item" style="margin-top: -20px">
+          <div class="filter-content">
+            <div class="card-body">
+              Author Name
+              <hr style="margin-left: 0">
+              <div class="md-form" >
+                <input mdbInputDirective type="text" id="form2" class="form-control" [(ngModel)]="authorNameText">
+                <label for="form2" class="">Author Name</label>
+              </div>
+              <button (click)="filterByAuthorName()"
+                type="button" class="btn btn-primary waves-light btn-sm" style="border-radius: 50px" mdbWavesEffect
+              #authorNameField>
+                Search
+              </button>
+              <button (click)="clearAuthorName(minField,maxField)"
+                      type="button" class="btn btn-primary waves-light btn-sm" style="border-radius: 50px" mdbWavesEffect>
+                Clear
+              </button>
+              <!-- form-check.// -->
+              <!-- form-check.// -->
+            </div> <!-- card-body.// -->
+          </div>
+        </article>
+        <article class="card-group-item" style="margin-top: -20px">
+          <div class="filter-content">
+            <div class="card-body">
+              Sort Order
+              <hr style="margin-left: 0">
+              <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="sortOrder">
+                  <option selected>Oldest First</option>
+                  <option >Newest First</option>
+                  <option>Price low to high</option>
+                  <option>Price high to low</option>
+                </select>
+              </div>
+              <button (click)="applySort()"
+                      type="button" class="btn btn-primary waves-light btn-sm" style="border-radius: 50px" mdbWavesEffect
+                      #authorNameField>
+                Sort
+              </button>
+              <!-- form-check.// -->
+              <!-- form-check.// -->
+            </div> <!-- card-body.// -->
+          </div>
+        </article>
+
+      </div> <!-- card.// -->
+    </aside> <!-- col.// -->
+    <div class="col" style="padding-left: 3%">
+      <div class="container">
+        <div class="row">
+          <div style="padding-left: 0;padding-right: 0;padding-top: 0"
+               class="col-4" *ngIf="listings.length == 0">
+          <!--{{showToastInfo("No Items Found")}}-->
+            <label class="wrap">No Items Found<br>
+              <i class="fa fa-frown-o fa-lg"></i>
+            </label>
+          </div>
+          <div style="padding-left: 0;padding-right: 0;padding-top: 0"
+            class="block col-4" *ngFor="let item of listings;let idx = index">
+            <div class="product" mdbWavesEffect="">
+              <!--<img src="https://gangarams.com/image/cache/placeholder-250x250.png">-->
+              <img src="{{item.image}}">
+              <div class="buttons">
+                <a class="buy" (click)="redirectList(item.id)" onclick="">View</a>
+              </div>
+            </div>
+            <div class="info">
+              <h4 style="font-weight: 600">{{item.bookName}}</h4>
+              <div class="description">
+                By {{item.authorName}}
+              </div>
+              <span class="price">Rs. {{item.price}}</span>
+              <!--<a class="buy_now" href="#" onclick="updateCart('${product.id}','${product.name}','${product.manufacturer}','${product.price}')">Buy Now</a>-->
+            </div>
+            <div class="details">
+              <div class="time">
+                <h5 class="badge badge-success"  [hidden]="checkCondiiton(item) !== 0">
+                  <label style="font-size: medium" class="conditionlabel">New</label></h5>
+                <h5 class="badge badge-info"   [hidden]="checkCondiiton(item) !== 1">
+                  <label style="font-size: medium" class="conditionlabel">Almost New</label></h5>
+                <h5 class="badge badge-warning"   [hidden]="checkCondiiton(item) !== 2">
+                  <label style="font-size: medium"  class="conditionlabel">Slight Damage</label></h5>
+                <h5 class="badge badge-danger"   [hidden]="checkCondiiton(item) !== 3">
+                  <label style="font-size: medium"  class="conditionlabel">Worn</label></h5>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a class="time" style="color: mediumblue;" (click)="addToWishList(idx)" mdbTooltip="Add To WishList" placement="bottom">
+                  <i class="fa fa-bookmark-o fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Main -->
+</div>
+<div id="snackbar">Added To Your Wishlist</div>
+<div id="snackbar2">Invalid Range</div>

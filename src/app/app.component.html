@@ -1,0 +1,51 @@
+<!--<app-signup></app-signup>-->
+<!--<app-login></app-login>-->
+<mdb-navbar id="mainNavbar"
+            SideClass="navbar fixed-top navbar-expand-lg navbar-dark deep-orange scrolling-navbar ie-nav" [containerInside]="false">
+  <logo style="margin-right: 20px">
+    <a class="logo navbar-brand" href="#" style="text-transform: uppercase"><strong>Bookstaan</strong></a>
+  </logo>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item waves-light" mdbWavesEffect style="margin-right: 20px">
+        <a class="nav-link" routerLink="/home" id="homeNavbar">Home</a>
+      </li>
+      <li class="nav-item waves-light" id="listingsNavbar" mdbWavesEffect style="margin-right: 20px">
+        <a class="nav-link " routerLink="/listings">Listings <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item waves-light" id="sellNavbar" mdbWavesEffect style="margin-right: 20px">
+        <a class="nav-link" routerLink="/listings/add">Sell</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item dropdown" id="authNavbar" dropdown style="margin-right: 20px">
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          <label id="userNameNavbar" style="margin-right: 8px"><b>Sign In</b></label>
+          <i class="fa fa-user fa-lg"></i><span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" id="profileNavbar" mdbWavesEffect routerLink="/profile" hidden>Profile</a>
+          <a class="dropdown-item waves-light" id="logoutNavbar" mdbWavesEffect routerLink="/logout" hidden>Logout</a>
+          <a class="dropdown-item waves-light" id="loginNavbar" mdbWavesEffect routerLink="/login">Login</a>
+          <a class="dropdown-item waves-light" id="signupNavbar" mdbWavesEffect routerLink="/signup">Sign Up</a>
+        </div>
+      </li>
+      <li class="nav-item waves-light" id="messagesNavbar" mdbWavesEffect style="margin-right: 20px">
+        <a class="nav-link" routerLink="/messages" mdbTooltip="Messages" placement="bottom">
+          <i class="fa fa-envelope fa-lg"></i>&nbsp;
+          <!--<span class="badge badge-primary" style="border-radius: 18px">0</span>-->
+        </a>
+      </li>
+      <li class="nav-item waves-light" id="wishlistNavbar" mdbWavesEffect style="margin-right: 20px">
+        <a class="nav-link" routerLink="/wishlist" mdbTooltip="WishList" placement="bottom">
+          <i class="fa fa-bookmark fa-lg"></i>&nbsp;
+          <!--<span class="badge badge-primary" style="border-radius: 18px">0</span>-->
+        </a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>
+<main [@routerTransition] = "getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<!--<app-home></app-home>-->
